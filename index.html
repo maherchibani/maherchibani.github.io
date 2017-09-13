@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="weatherApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="weatherApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="weatherApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="weatherApp" class="no-js"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="app.css">
-  
-</head>
-
-
-
-<body  ng-controller="weatherCtrl">
-<div ng-repeat="obj in objects  "> {{   obj.fields }} </div>
-
-
-
-
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
-</body>
+<!--[if lt IE 7]>      <html lang="en" ng-app="petrolApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="petrolApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="petrolApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="petrolApp" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exportation mensuelle du pétrole brut en Tunisie</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body  ng-controller="exportCtrl">
+    <div class="container">
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Month</th>
+              <th>Year</th>
+              <th>Export</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="statItem in statItems">
+              <th scope="row">{{ statItem._id }}</th>
+              <td>{{ statItem.Date }}</td>
+              <td>{{ statItem.Month}}</td>
+              <td>{{ statItem.Year }}</td>
+              <td>{{ statItem['Exportation Pétrole brut en kt'] | number:2}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    </body>
 </html>
