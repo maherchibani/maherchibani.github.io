@@ -1,6 +1,6 @@
 var App = angular.module('petrolApp',["ng-fusioncharts"]);
   
-App.controller('exportCtrl', function ($scope, $http){
+App.controller('exportCtrl', function ($scope, $http, $filter){
    $scope.dataSource = {};
     var init = function(){
         $http({
@@ -31,7 +31,7 @@ App.controller('exportCtrl', function ($scope, $http){
             for ( var i = 0; i < $scope.statItems.length ; i++) {
                 dataSource.data.push({
                     label: $scope.statItems[i].Date,
-                    value: ""+ $scope.statItems[i]['Exportation Pétrole brut en kt']
+                value: ""+ $filter('number') ($scope.statItems[i]['Exportation Pétrole brut en kt'],2)
                 });
         }
         return dataSource;
