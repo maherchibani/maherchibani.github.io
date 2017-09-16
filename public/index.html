@@ -4,66 +4,57 @@
 <!--[if IE 8]>         <html lang="en" ng-app="petrolApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="petrolApp" class="no-js"> <!--<![endif]-->
   <head>
-    <meta charset="utf-8">
-	
-	
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Exportation mensuelle du pétrole brut en Tunisie</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="app.css">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Exportation mensuelle du pétrole brut en Tunisie</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="app.css">
 	    <link rel="stylesheet" href="css/style.css">
 
   </head>
-  <body>
+  <body>  
     <header class="bird-box">
       <div class="back-bird"></div>
       <div class="logo"></div>
       <div class="fore-bird"></div>
     </header>
     <section class="content">
-      <article>
-        <h1>Exportation mensuelle du pétrole brut en Tunisie 2010</h1>
-        <hr>
-<div class="container" ng-controller="exportCtrl">
-        <table class="table table-hover table-inverse">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Date</th>
-              <th>Month</th>
-              <th>Year</th>
-              <th>Export</th> 
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="statItem in statItems">
-              <th scope="row">{{ statItem._id }}</th>
-              <td>{{ statItem.Date }}</td>
-              <td>{{ statItem.Month}}</td>
-              <td>{{ statItem.Year }}</td>
-              <td>{{ statItem['Exportation Pétrole brut en kt'] | number:2}}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div fusioncharts width="700" height="400" type="column2d" datasource="{{dataSource}}"></div>
-    </div>        <hr>
-       
-        
-        <div class="large-window">
-          <div class="window-tint">
-            <div class="promo-text">Fall Suits<strong><span>from</span> $99</strong><a href="" class="window-cta">Shop Now</a></div>
+      <article>  
+        <div class="container" ng-controller="exportCtrl">
+          <h1>Monthly export of crude oil in Tunisia {{year}}</h1>
+          Exportation year: <input type="text" id="lastName" class="form-control" ng-model="year" ng-change="changeValue()" />
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Export</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="statItem in statItems">
+                <th scope="row">{{ statItem._id }}</th>
+                <td>{{ statItem.Date }}</td>
+                <td>{{ statItem.Month}}</td>
+                <td>{{ statItem.Year }}</td>
+                <td>{{ statItem['Exportation Pétrole brut en kt'] | number:2}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div fusioncharts width="700" height="400" type="column2d" datasource="{{dataSource}}"></div>       
+          <div class="large-window">
+            <div class="window-tint">
+            </div>
           </div>
-        </div>
-        
-        
       </article>
     </section>
       <footer>
         <div class="row footer-stuff">
-                  <p>&copy; 2017 Chibani Maher    </p>
-
+          <p>&copy; 2017 Chibani Maher    </p>
         </div>
       </footer>
       <script src="bower_components/angular/angular.js"></script>
